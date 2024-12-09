@@ -1,6 +1,5 @@
-# STAT-172-Final
 ---
-title: "Meals on Wheels Expansion Recommendation Based on Food Anxiety Level"
+"Meals on Wheels Expansion Recommendation Based on Food Anxiety Level"
 author: "Phuong Nguyen"
 date: "12/08/2024"
 output: html_document
