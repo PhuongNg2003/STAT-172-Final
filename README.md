@@ -38,6 +38,7 @@ Predictions are saved in the following files for quick access:
 * ```/data/fsstamp_prediction.csv```
 * ```/data/fsfoods_prediction.csv```
 * ```/data/single_senior_household.csv```
+
 These predictions are used in ```code/combining_predictions.R``` to generate the Iowa heat map with food security prediction.
 
 ## Clean data
