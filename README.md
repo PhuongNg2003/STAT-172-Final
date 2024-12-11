@@ -1,14 +1,14 @@
 ---
 title: "Meals on Wheels Expansion Recommendation"
-author: "Phuong Nguyen"
+author: "Phuong Nguyen, Matt Colbert, and Aria Fisher"
 date: "12/08/2024"
 output: html_document
 ---
 
-## Introduction
+# Introduction
 This repository will show you how to reproduce the results that support the recommendation on where in Iowa that Wesley Life should expand into based on whether an individual has food anxiety in the past year (FSWROUTY), whether they receive SNAP (FSSTAMPVALC), and whether they have enough food and the kinds of food they wanted to eat in the past year (FSFOODS). We will follow the description of how to run for FSWROUTY variable, and repeat the steps for the other 2 variables (FSSTAMPVALC & FSFOODS)
 
-## Requirements
+# Requirements
 To install the required R packages, run the following code in R:
 
 ```r
@@ -19,7 +19,7 @@ install.packages(c("tidyverse", "caret", "ggthemes",
   "rpart", "rpart.plot", "reshape2"))
 ```
 
-## Data
+# Data
 
 We use four different data files. 
 ```/data/cps_00006.csv``` contains all the Current Population Survey Food Security Supplement survey data from the Department of Agriculture. 
@@ -28,14 +28,18 @@ We use four different data files.
 ```/data/spm_pu_2022.sas7bdat``` is the data we use to predict.
 
 We also save our predictions in the ```/data/fswrouty_prediction.csv```, ```/data/fsstamp_prediction.csv```, ```/data/fsfoods_prediction.csv```, ```/data/single_senior_household.csv```
-to make the reproduction of the ```code/combining_predictions.R``` quicker, but there are also comments at the top of the file if you would prefer to source just that file.
+to make the reproduction of the ```code/combining_predictions.R``` quicker.
 
-## Reproduce 
+# Reproduce 
 
 ### Clean data
 We created ```code/clean_acs.R``` (data we use to predict) and ```code/clean_cps.R``` (Current Population Survey data) with the goal of cleaning our x and y variables before using them
 
-We, then, need to run the files in order to create a smooth follow and have enough data. Thus, we will need to run all the y-variable analysis files first
+## Short-cut Approach
+As we mentioned above, for a quicker reproduction of the result, you can run  ```code/combining_predictions.R``` to get the heat map of areas in Iowa that rank from most important (lowest number) to least important (highest number).
+
+## Other Approach
+However, in order to understand the process of choosing the model and the individual y-variable prediction, we can run the y-variable files separately.
 
 ### Y-variables
 We need to run these ```code/FSWROUTY_variable.R ```, ```code/fsstamp_analysis.R```, ```code/fsfoods_analysis.R``` files for each y-variable. 
@@ -51,9 +55,10 @@ All these codes have the same format
 * Present the final predictions using the heat map to highlight different areas
 * For the FSWROUTY variable, there are a few extra codes at the end to focus on Single-Senior household prediction
 
-After running the 3 y-variable files, you can run ```code/combining_predictions.R```. This file helps compile all predictions from the 3 files above to rank areas that Wesley Life should look into with the lower number meaning it's important to take immediate action and the high number indicating the less importance. 
+After running the 3 y-variable files, you can run ```code/combining_predictions.R```, using source of the different y-variable. This file helps compile all predictions from the 3 files above to rank areas that Wesley Life should look into with the lower number meaning it's important to take immediate action and the high number indicating the less importance. 
 
-
-
+## Extra 
+You can run ```code/visualizations_and_general_analysis.R``` to see more visualization work, specifically on the y-variable overlap and senior population percentage. 
+You can also look into ```code/cluster_model_testing.R``` for some extra work regarding x-variables clusters, which was found to be not working well afterward. 
 
 
