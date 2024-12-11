@@ -32,24 +32,24 @@ to make the reproduction of the ```r code/combining_predictions.R``` quicker, bu
 
 ## Reproduce 
 
-# Clean data
+### Clean data
 We created ```r code/clean_acs.R``` (data we use to predict) and ```r code/clean_cps.R``` (Current Population Survey data) with the goal of cleaning our x and y variables before using them
 
 We, then, need to run the files in order to create a smooth follow and have enough data. Thus, we will need to run all the y-variable analysis files first
 
-# Y-variables
+### Y-variables
 We need to run these ```r code/FSWROUTY_variable.R ```, ```r code/fsstamp_analysis.R```, ```r code/fsfoods_analysis.R``` files for each y-variable. 
 All these codes have the same format
-* clean y-variable and transform them into binary
-* split data into training and testing data
-* adding interaction and squared terms (this only happens in ```r code/fsstamp_analysis.R``` and ```r code/fsfoods_analysis.R```)
-* trying different regressions including MLE, Firth's penalized likelihood, Random Forest, Decision Tree, Lasso and Ridge
-* compare all these AUC from different regressions
-* make a prediction on the ```r clean_acs.R``` data
-* upload the Iowa PUMA shape map to create a map with proportions of people in Iowa regarding the chosen y-variable
-* upload the senior data and run prediction in this population
-* present the final predictions using the heat map to highlight different areas
-* For the FSWROUTY variable, there are a few extra codes at the end to focus on Single-Senior household prediction
+* Clean y-variable and transform them into binary
+* Split data into training and testing data
+* Adding interaction and squared terms (this only happens in ```r code/fsstamp_analysis.R``` and ```r code/fsfoods_analysis.R```)
+* Trying different regressions including MLE, Firth's penalized likelihood, Random Forest, Decision Tree, Lasso and Ridge
+* Compare all these AUC from different regressions
+* Make a prediction on the ```r clean_acs.R``` data
+* Upload the Iowa PUMA shape map to create a map with proportions of people in Iowa regarding the chosen y-variable
+* Upload the senior data and run prediction in this population
+* Present the final predictions using the heat map to highlight different areas
+* For the ###FSWROUTY variable###, there are a few extra codes at the end to focus on Single-Senior household prediction
 
 After running the 3 y-variable files, you can run ```r code/combining_predictions.R```
 
